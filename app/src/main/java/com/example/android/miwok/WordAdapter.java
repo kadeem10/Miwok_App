@@ -8,15 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-
-import static android.R.attr.onClick;
-import static android.R.attr.resource;
 
 /**
  * Created by Reshaud Ally on 11/5/2016.
@@ -24,7 +18,6 @@ import static android.R.attr.resource;
 
 public class WordAdapter extends ArrayAdapter<Word> {
     private int mColor;
-    private int mAudio;
 
     public WordAdapter(Context context,ArrayList<Word> words,int color){
         super(context,0,words);
@@ -54,6 +47,9 @@ public class WordAdapter extends ArrayAdapter<Word> {
         //Find the image view
         ImageView imgView = (ImageView) listItemView.findViewById(R.id.icon);
 
+        //Find the play icon
+        ImageView iconView = (ImageView) listItemView.findViewById(R.id.play_icon);
+
         //get the miwok word at the current position
         //set the text of the TextView
         miwokText.setText(currentWord.getMiwokWord());
@@ -77,6 +73,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         //set color
         textContainer.setBackgroundColor(ContextCompat.getColor(getContext(),mColor));
+        iconView.setBackgroundColor(ContextCompat.getColor(getContext(), mColor));
 
 
 
